@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>14-执行顺序面试题1</title>
+</head>
+
+<body>
+  <script>
+    setTimeout(() => {
+      console.log(1)
+    }, 0)
+    new Promise((resolve) => {
+      console.log(2)
+      resolve()
+    }).then(() => {
+      console.log(3)
+    }).then(() => {
+      console.log(4)
+    })
+    console.log(5)
+
+    /**
+     * 执行顺序：2,5,3,4,1
+     */
+  </script>
+</body>
+
+</html>
